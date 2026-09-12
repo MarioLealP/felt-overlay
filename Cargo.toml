@@ -1,0 +1,19 @@
+[package]
+name = "felt-overlay"
+version = "0.1.0"
+edition = "2021"
+description = "A lightweight, click-through desktop companion overlay for Felt"
+license = "MIT OR Apache-2.0"
+
+[dependencies]
+smithay-client-toolkit = { version = "0.20.0", default-features = true }
+wayland-client = "0.31"
+calloop = "0.14"
+calloop-wayland-source = "0.4"
+image = { version = "=0.25.9", default-features = false, features = ["png"] }
+
+[profile.release]
+lto = true
+codegen-units = 1
+panic = "abort"
+strip = true
